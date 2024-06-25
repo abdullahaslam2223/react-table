@@ -1,7 +1,7 @@
-import Agency from "./Components/Agency/Agency";
+import AgencyTable from "./Components/Agency/AgencyTable";
 
 function App() {
-  return <Agency />;
+  return <AgencyTable />;
 }
 
 export default App;
