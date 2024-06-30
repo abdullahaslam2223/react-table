@@ -1,14 +1,15 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import { ShiftItem as ShiftItemType } from "./types";
 import { ShiftItemProps } from "./types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import moment from "moment";
 
 const ShiftItem: React.FC<ShiftItemProps> = (props): JSX.Element => {
   const shift: ShiftItemType = props.shift;
   const [isDropDownOpen, setIsDropDownOpen] = React.useState<boolean>(false);
 
-  const toggleDropDown: Function = (): void => {
+  const toggleDropDown: MouseEventHandler<HTMLButtonElement> = (): void => {
     setIsDropDownOpen((prevState): boolean => !prevState);
   };
 
@@ -17,12 +18,14 @@ const ShiftItem: React.FC<ShiftItemProps> = (props): JSX.Element => {
       <tr className="bg-white odd:bg-gray-50 hover:bg-gray-100 transition duration-300 rounded-lg">
         <td className="border px-4 py-3">{shift.id}</td>
         <td className="border px-4 py-3">{shift.title}</td>
-        <td className="border px-4 py-3">{shift.date.toLocaleDateString()}</td>
         <td className="border px-4 py-3">
-          {shift.startTime.toLocaleDateString()}
+          {moment(shift.date).format("MM/DD/yyyy")}
         </td>
         <td className="border px-4 py-3">
-          {shift.endTime.toLocaleDateString()}
+          {moment(shift.startTime).format("hh:mm A")}
+        </td>
+        <td className="border px-4 py-3">
+          {moment(shift.endTime).format("hh:mm A")}
         </td>
         <td className="border px-4 py-3">{shift.location}</td>
         <td className="border px-4 py-3">{shift.staff}</td>

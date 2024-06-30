@@ -1,24 +1,52 @@
 import React from "react";
 import ShiftItem from "./ShiftItem";
+import { shifts as shiftsData } from "./data";
 import { ShiftItem as ShiftItemType } from "./types";
+import { FiltersType } from "./types";
+import DateFilter from "./DateFilter";
 
 const Shift: React.FC = (): JSX.Element => {
-  const shifts: ShiftItemType[] = [
-    {
-      id: 1,
-      title: "Title",
-      date: new Date("30-06-2024"),
-      startTime: new Date("2023-06-30T10:00:00"),
-      endTime: new Date("2023-06-30T10:00:00"),
-      location: "Islamabad",
-      staff: "Abdullah",
-      status: true,
-    },
-  ];
+  const [shifts, setShifts] = React.useState<ShiftItemType[] | undefined>(
+    undefined
+  );
+
+  // const [locations, setLocations] = React.useState<Array<string> | undefined>(
+  //   undefined
+  // );
+
+  const [filters, setFilters] = React.useState<FiltersType>({
+    startDate: undefined,
+    endDate: undefined,
+    location: undefined,
+  });
+
+  React.useEffect((): void => {
+    setShifts(shiftsData);
+    // let loc = shiftsData?.map((shift: ShiftItemType) => shift.location);
+    // loc = [...new Set(loc)];
+    // console.log("27", loc);
+    // setLocations(loc);
+  }, []);
+
+  React.useEffect((): void => {
+    if (filters.startDate && filters.endDate) {
+      const filteredShifts: ShiftItemType[] | undefined = shifts?.filter(
+        (shift: ShiftItemType) => {
+          return (
+            shift.date >= filters.startDate && shift.date <= filters.endDate
+          );
+        }
+      );
+      setShifts(filteredShifts);
+    }
+  }, [filters]);
 
   return (
     <div className="flex flex-col items-center p-4">
-      <h1 className="text-3xl font-bold mb-6 text-center">Shifts</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Shifts Details</h1>
+      <div className="mb-3">
+        <DateFilter filters={filters} setFilters={setFilters} />
+      </div>
       <div className="w-full max-w-5xl">
         <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200">
           <table className="min-w-full bg-white">
@@ -54,8 +82,8 @@ const Shift: React.FC = (): JSX.Element => {
               </tr>
             </thead>
             <tbody>
-              {shifts.map((shift) => (
-                <ShiftItem shift={shift} />
+              {shifts?.map((shift) => (
+                <ShiftItem key={shift.id} shift={shift} />
               ))}
             </tbody>
           </table>

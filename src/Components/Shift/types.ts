@@ -12,3 +12,14 @@ export interface ShiftItem {
 export interface ShiftItemProps {
   shift: ShiftItem;
 }
+
+export interface FiltersType {
+  startDate: Date | undefined;
+  endDate: Date | undefined;
+  location: string | undefined;
+}
+
+export interface DateFilterProps {
+  filters: FiltersType;
+  setFilters: Function;
+}
