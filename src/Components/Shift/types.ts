@@ -16,7 +16,7 @@ export interface ShiftItemProps {
 export interface FiltersType {
   startDate: Date | undefined;
   endDate: Date | undefined;
-  location: string | undefined;
+  city: string | undefined;
 }
 
 export interface DateFilterProps {

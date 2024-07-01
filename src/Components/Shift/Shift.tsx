@@ -4,28 +4,27 @@ import { shifts as shiftsData } from "./data";
 import { ShiftItem as ShiftItemType } from "./types";
 import { FiltersType } from "./types";
 import DateFilter from "./DateFilter";
+import Dropdown from "../Utils/Dropdown";
 
 const Shift: React.FC = (): JSX.Element => {
   const [shifts, setShifts] = React.useState<ShiftItemType[] | undefined>(
     undefined
   );
-
-  // const [locations, setLocations] = React.useState<Array<string> | undefined>(
-  //   undefined
-  // );
+  const [locations, setLocations] = React.useState<Array<string> | undefined>(
+    undefined
+  );
 
   const [filters, setFilters] = React.useState<FiltersType>({
     startDate: undefined,
     endDate: undefined,
-    location: undefined,
+    city: undefined,
   });
 
   React.useEffect((): void => {
     setShifts(shiftsData);
-    // let loc = shiftsData?.map((shift: ShiftItemType) => shift.location);
-    // loc = [...new Set(loc)];
-    // console.log("27", loc);
-    // setLocations(loc);
+    let location = shiftsData?.map((shift: ShiftItemType) => shift.location);
+    location = [...new Set(location)];
+    setLocations(location);
   }, []);
 
   React.useEffect((): void => {
@@ -39,13 +38,30 @@ const Shift: React.FC = (): JSX.Element => {
       );
       setShifts(filteredShifts);
     }
+    if (filters.city) {
+      const filteredShifts: ShiftItemType[] | undefined = shifts?.filter(
+        (shift: ShiftItemType) => {
+          return shift.location.toLowerCase() === filters.city;
+        }
+      );
+      setShifts(filteredShifts);
+    }
   }, [filters]);
 
   return (
     <div className="flex flex-col items-center p-4">
       <h1 className="text-3xl font-bold mb-6 text-center">Shifts Details</h1>
-      <div className="mb-3">
-        <DateFilter filters={filters} setFilters={setFilters} />
+      <div className="mb-3 flex">
+        <div>
+          <DateFilter filters={filters} setFilters={setFilters} />
+        </div>
+        <div className="ml-2">
+          <Dropdown
+            cities={locations}
+            filters={filters}
+            setFilters={setFilters}
+          />
+        </div>
       </div>
       <div className="w-full max-w-5xl">
         <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200">

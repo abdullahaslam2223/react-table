@@ -1,16 +1,24 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import { ShiftItem as ShiftItemType } from "./types";
 import { ShiftItemProps } from "./types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
+import Modal from "../Utils/Modal";
 
 const ShiftItem: React.FC<ShiftItemProps> = (props): JSX.Element => {
   const shift: ShiftItemType = props.shift;
   const [isDropDownOpen, setIsDropDownOpen] = React.useState<boolean>(false);
+  const [showModal, setShowModal] = React.useState<boolean>(false);
 
-  const toggleDropDown: MouseEventHandler<HTMLButtonElement> = (): void => {
+  const toggleDropDown = (): void => {
     setIsDropDownOpen((prevState): boolean => !prevState);
+  };
+  const toggleModal = (): void => {
+    setShowModal((prevState): boolean => !prevState);
+  };
+  const modalClose = (): void => {
+    setShowModal(false);
   };
 
   return (
@@ -46,7 +54,7 @@ const ShiftItem: React.FC<ShiftItemProps> = (props): JSX.Element => {
           <div className="py-1">
             <button
               className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              onClick={() => alert("View clicked")}
+              onClick={toggleModal}
             >
               View
             </button>
@@ -64,6 +72,13 @@ const ShiftItem: React.FC<ShiftItemProps> = (props): JSX.Element => {
             </button>
           </div>
         </div>
+      )}
+      {showModal && (
+        <Modal modalClose={modalClose}>
+          <h1 className="text-2xl font-bold">Shift Details</h1>
+          This is {shift.staff}'s shift of {shift.title} on{" "}
+          <span className="font-bold">{shift.date.toLocaleDateString()}</span>
+        </Modal>
       )}
     </>
   );

@@ -14,16 +14,14 @@ const DateFilter: React.FC<DateFilterProps> = ({
 
   return (
     <div>
-      <h1 className="bg-green-500 text-white rounded-lg shadow text-center">
-        Select Dates
-      </h1>
       <DatePicker
+        className="bg-gray-200 py-2 px-2"
         selected={filters.startDate}
         startDate={filters.startDate}
         endDate={filters.endDate}
         selectsRange
         onChange={hanldeDateChange}
-        placeholderText="Start Date"
+        placeholderText="Select Date"
       />
     </div>
   );
