@@ -25,3 +25,9 @@ export interface DateFilterProps {
   filters: FiltersType;
   setFilters: Function;
 }
+
+export interface ShiftFormType {
+  title: string;
+  location: string;
+  staff: string;
+}

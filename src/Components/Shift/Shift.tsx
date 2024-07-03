@@ -1,12 +1,15 @@
 import React, { ChangeEvent } from "react";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import ShiftItem from "./ShiftItem";
-import { shifts as shiftsData } from "./data";
 import { ShiftItem as ShiftItemType } from "./types";
 import { FiltersType } from "./types";
 import DateFilter from "./DateFilter";
 import Dropdown from "../Utils/Dropdown";
+import { ToastContainer, toast } from "react-toastify";
 
 const Shift: React.FC = (): JSX.Element => {
+  const navigate: NavigateFunction = useNavigate();
+
   const [shifts, setShifts] = React.useState<ShiftItemType[] | undefined>(
     undefined
   );
@@ -37,12 +40,40 @@ const Shift: React.FC = (): JSX.Element => {
     searchText: "",
   });
 
+  const setShiftsData: Function = (
+    shiftsData: ShiftItemType[]
+  ): ShiftItemType[] => {
+    const sortedShiftsData = [...shiftsData].sort((a, b) => b.id - a.id);
+    return sortedShiftsData;
+    // const dateObjectsShiftsData = sortedShiftsData.map(
+    //   (shiftsData): ShiftItemType => ({
+    //     ...shiftsData,
+    //     date: new Date(shiftsData?.date),
+    //   })
+    // );
+    // return dateObjectsShiftsData;
+  };
+
+  const fetchShiftsData = async (): Promise<void> => {
+    fetch("http://localhost:3000/shifts")
+      .then((response) => response.json())
+      .then((shiftsData) => {
+        const validatedShiftsData = setShiftsData(shiftsData);
+        setShifts(validatedShiftsData);
+        setFilteredShifts(validatedShiftsData);
+        let location = validatedShiftsData?.map(
+          (shift: ShiftItemType) => shift.location
+        );
+        location = [...new Set(location)];
+        setLocations(location);
+      })
+      .catch((error) => {
+        toast("Error in fetching the shifts data ", error);
+      });
+  };
+
   React.useEffect((): void => {
-    setShifts(shiftsData);
-    setFilteredShifts(shiftsData);
-    let location = shiftsData?.map((shift: ShiftItemType) => shift.location);
-    location = [...new Set(location)];
-    setLocations(location);
+    fetchShiftsData();
   }, []);
 
   React.useEffect((): void => {
@@ -109,8 +140,13 @@ const Shift: React.FC = (): JSX.Element => {
     }));
   };
 
+  const handleAddShiftClick = (): void => {
+    navigate("/add-shift");
+  };
+
   return (
     <div className="flex flex-col items-center p-4">
+      <ToastContainer />
       <h1 className="text-3xl font-bold mb-6 text-center">Shifts Details</h1>
       <div>
         <input
@@ -149,6 +185,14 @@ const Shift: React.FC = (): JSX.Element => {
             <option value="active">Active</option>
             <option value="inactive">InActive</option>
           </select>
+        </div>
+        <div className="ml-2 mb-2">
+          <button
+            onClick={handleAddShiftClick}
+            className="border border-2 border-green-500 px-4 py-1 hover:text-white hover:bg-green-500 transition transition-1"
+          >
+            Add New Shift
+          </button>
         </div>
       </div>
       <div className="w-full max-w-5xl">
