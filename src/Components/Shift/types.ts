@@ -17,6 +17,8 @@ export interface FiltersType {
   startDate: Date | undefined;
   endDate: Date | undefined;
   city: string | undefined;
+  status: string | undefined;
+  searchText: string;
 }
 
 export interface DateFilterProps {

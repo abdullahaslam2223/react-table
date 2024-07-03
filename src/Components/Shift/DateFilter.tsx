@@ -15,7 +15,7 @@ const DateFilter: React.FC<DateFilterProps> = ({
   return (
     <div>
       <DatePicker
-        className="bg-gray-200 py-2 px-2"
+        className="bg-gray-200 ml-2 py-2 px-2"
         selected={filters.startDate}
         startDate={filters.startDate}
         endDate={filters.endDate}
