@@ -6,6 +6,8 @@ import { FiltersType } from "./types";
 import DateFilter from "./DateFilter";
 import Dropdown from "../Utils/Dropdown";
 import { ToastContainer, toast } from "react-toastify";
+import Modal from "../Utils/Modal";
+import AddShift from "./AddShift";
 
 const Shift: React.FC = (): JSX.Element => {
   const navigate: NavigateFunction = useNavigate();
@@ -43,8 +45,9 @@ const Shift: React.FC = (): JSX.Element => {
   const setShiftsData: Function = (
     shiftsData: ShiftItemType[]
   ): ShiftItemType[] => {
-    const sortedShiftsData = [...shiftsData].sort((a, b) => b.id - a.id);
-    return sortedShiftsData;
+    return [...shiftsData].reverse();
+    // const sortedShiftsData = [...shiftsData].sort((a, b) => b.id - a.id);
+    // return sortedShiftsData;
     // const dateObjectsShiftsData = sortedShiftsData.map(
     //   (shiftsData): ShiftItemType => ({
     //     ...shiftsData,
@@ -140,8 +143,13 @@ const Shift: React.FC = (): JSX.Element => {
     }));
   };
 
-  const handleAddShiftClick = (): void => {
-    navigate("/add-shift");
+  const [isAddShiftModalOpen, setIsModalShiftOpen] =
+    React.useState<boolean>(false);
+  const openAddShiftModal = (): void => {
+    setIsModalShiftOpen(true);
+  };
+  const closeAddShiftModal = (): void => {
+    setIsModalShiftOpen(false);
   };
 
   return (
@@ -188,7 +196,7 @@ const Shift: React.FC = (): JSX.Element => {
         </div>
         <div className="ml-2 mb-2">
           <button
-            onClick={handleAddShiftClick}
+            onClick={openAddShiftModal}
             className="border border-2 border-green-500 px-4 py-1 hover:text-white hover:bg-green-500 transition transition-1"
           >
             Add New Shift
@@ -268,6 +276,11 @@ const Shift: React.FC = (): JSX.Element => {
           </div>
         </div>
       </div>
+      {isAddShiftModalOpen && (
+        <Modal modalClose={closeAddShiftModal}>
+          <AddShift closeModal={closeAddShiftModal} />
+        </Modal>
+      )}
     </div>
   );
 };

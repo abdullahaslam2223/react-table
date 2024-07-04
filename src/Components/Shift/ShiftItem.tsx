@@ -5,8 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 import Modal from "../Utils/Modal";
+import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
 
 const ShiftItem: React.FC<ShiftItemProps> = (props): JSX.Element => {
+  const navigate: NavigateFunction = useNavigate();
   const shift: ShiftItemType = props.shift;
   const [isDropDownOpen, setIsDropDownOpen] = React.useState<boolean>(false);
   const [showModal, setShowModal] = React.useState<boolean>(false);
@@ -20,10 +22,16 @@ const ShiftItem: React.FC<ShiftItemProps> = (props): JSX.Element => {
   const modalClose = (): void => {
     setShowModal(false);
   };
+  const viewDetails = (): void => {
+    navigate(`/shift/${shift.id}`);
+  };
 
   return (
     <>
-      <tr className="bg-white odd:bg-gray-50 hover:bg-gray-100 transition duration-300 rounded-lg">
+      <tr
+        onClick={viewDetails}
+        className="bg-white odd:bg-gray-50 hover:bg-gray-100 transition duration-300 rounded-lg cursor-pointer"
+      >
         <td className="border px-4 py-3">{shift.id}</td>
         <td className="border px-4 py-3">{shift.title}</td>
         <td className="border px-4 py-3">

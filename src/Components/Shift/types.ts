@@ -30,4 +30,15 @@ export interface ShiftFormType {
   title: string;
   location: string;
   staff: string;
+  status: boolean;
+  date: string;
+}
+
+export interface AvailableShiftType {
+  id: number;
+  title: string;
+}
+
+export interface AddShiftProps {
+  closeModal: () => void;
 }

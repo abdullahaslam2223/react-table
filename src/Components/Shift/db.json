@@ -69,6 +69,78 @@
       "location": "Lahore",
       "staff": "Jawad",
       "status": true
+    },
+    {
+      "id": "6a04",
+      "title": "Business Development",
+      "date": "2024-07-05T22:31",
+      "location": "Multan",
+      "staff": "Sufyan",
+      "status": "true"
+    },
+    {
+      "id": "041c",
+      "title": "Project Managment",
+      "date": "2024-07-03T20:34",
+      "location": "Layyah",
+      "staff": "Khubaib",
+      "status": "true"
+    },
+    {
+      "id": "5c08",
+      "title": "Client Retention",
+      "date": "2024-07-05T19:40",
+      "location": "Rawalpindi",
+      "staff": "Hamza",
+      "status": "true"
+    },
+    {
+      "id": "a0be",
+      "title": "Business Development",
+      "date": "2024-07-11T19:41",
+      "location": "Lahore",
+      "staff": "Bilal",
+      "status": "true"
+    },
+    {
+      "id": "e105",
+      "title": "Software Engineering",
+      "date": "2024-07-13T07:43",
+      "location": "Karachi",
+      "staff": "Athar",
+      "status": "false"
+    },
+    {
+      "id": "e653",
+      "title": "App Development",
+      "date": "2024-07-12T02:24",
+      "location": "Lahore",
+      "staff": "Ahtisham",
+      "status": "true"
+    },
+    {
+      "id": "e88d",
+      "title": "ERP Development",
+      "date": "2024-07-03T14:28",
+      "location": "Sargodha",
+      "staff": "Sami",
+      "status": "true"
+    },
+    {
+      "id": "d1ae",
+      "title": "Web Development",
+      "date": "2024-07-03T14:29",
+      "location": "Lahore",
+      "staff": "Usama",
+      "status": "true"
+    },
+    {
+      "id": "37b8",
+      "title": "Software Engineering",
+      "date": "2024-07-11T14:43",
+      "location": "Layyah",
+      "staff": "Bilal",
+      "status": "false"
     }
   ],
   "availableShifts": [

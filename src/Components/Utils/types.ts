@@ -11,3 +11,15 @@ export interface DropdownProps {
   filters: FiltersType;
   setFilters: Function;
 }
+
+export interface TimelineEvent {
+  time: string;
+  title: string;
+  description: string;
+  status: "Booked" | "Assigned" | "Completed";
+  assignedName?: string;
+}
+
+export interface TimelineProps {
+  events: TimelineEvent[];
+}

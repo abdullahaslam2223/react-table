@@ -4,9 +4,14 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { AvailableShiftType } from "./types";
+import { AddShiftProps } from "./types";
 
-const AddShift: React.FC = (): JSX.Element => {
+const AddShift: React.FC<AddShiftProps> = ({ closeModal }): JSX.Element => {
   const navigate: NavigateFunction = useNavigate();
+
+  const [availableShifts, setAvailableShifts] = React.useState<
+    AvailableShiftType[]
+  >([]);
 
   const {
     register,
@@ -26,8 +31,8 @@ const AddShift: React.FC = (): JSX.Element => {
       .then((data) => {
         console.log(data);
         toast.success("Shift Added Successfully!", {
-          onClose: () => navigate("/shift"),
-          autoClose: 2000,
+          onClose: () => closeModal(),
+          autoClose: 1000,
         });
       })
       .catch((error) => {
@@ -35,10 +40,6 @@ const AddShift: React.FC = (): JSX.Element => {
         toast("Error in adding shift!");
       });
   };
-
-  const [availableShifts, setAvailableShifts] = React.useState<
-    AvailableShiftType[]
-  >([]);
 
   const fetchAvailableShifts = async (): Promise<void> => {
     fetch("http://localhost:3000/availableShifts")
@@ -55,7 +56,7 @@ const AddShift: React.FC = (): JSX.Element => {
       <ToastContainer />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-gray-200 mx-auto w-1/2 pt-3 pb-5 px-5 flex flex-col"
+        className="bg-gray-200 pt-3 pb-5 px-5 flex flex-col"
       >
         <h1 className="text-green-500 text-center text-2xl font-bold my-2">
           Add New Shift
