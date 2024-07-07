@@ -13,10 +13,11 @@ export interface DropdownProps {
 }
 
 export interface TimelineEvent {
+  shiftID: number;
   time: string;
   title: string;
   description: string;
-  status: "Booked" | "Assigned" | "Completed";
+  status: "Booked" | "Assigned" | "Completed" | "";
   assignedName?: string;
 }
 

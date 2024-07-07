@@ -12,6 +12,7 @@ import AgencyTable from "./Components/Agency/AgencyTable.tsx";
 import Shift from "./Components/Shift/Shift.tsx";
 import "react-toastify/dist/ReactToastify.css";
 import ShiftDetails from "./Components/Shift/ShiftDetails.tsx";
+import Profile from "./Components/Profile/Profile.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="/agency" element={<AgencyTable />} />
       <Route path="/shift" element={<Shift />} />
       <Route path="/shift/:id" element={<ShiftDetails />} />
+      <Route path="/profile" element={<Profile />} />
     </>
   )
 );

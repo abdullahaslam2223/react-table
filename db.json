@@ -141,6 +141,14 @@
       "location": "Layyah",
       "staff": "Bilal",
       "status": "false"
+    },
+    {
+      "id": "816b",
+      "title": "Software Engineering",
+      "date": "2024-07-05T18:35",
+      "location": "Lahore",
+      "staff": "Athar",
+      "status": "false"
     }
   ],
   "availableShifts": [
@@ -171,6 +179,52 @@
     {
       "id": "7",
       "title": "Client Retention"
+    }
+  ],
+  "events": [
+    {
+      "shiftID": 1,
+      "time": "11:59 am",
+      "title": "Event 1",
+      "description": "Shift booked",
+      "status": "Booked"
+    },
+    {
+      "shiftID": 1,
+      "time": "12:00 pm",
+      "title": "Event 2",
+      "description": "Asssiging the shift",
+      "status": "Assigned",
+      "assignedName": "John Doe"
+    },
+    {
+      "shiftID": 1,
+      "time": "12:01 pm",
+      "title": "Event 3",
+      "description": "Completed here",
+      "status": "Completed"
+    },
+    {
+      "shiftID": "37b8",
+      "time": "11:59 am",
+      "title": "Event 1",
+      "description": "Shift booked",
+      "status": "Booked"
+    },
+    {
+      "shiftID": "37b8",
+      "time": "12:00 pm",
+      "title": "Event 2",
+      "description": "Asssiging the shift",
+      "status": "Assigned",
+      "assignedName": "John Doe"
+    },
+    {
+      "shiftID": "37b8",
+      "time": "12:01 pm",
+      "title": "Event 3",
+      "description": "Completed here",
+      "status": "Completed"
     }
   ]
 }

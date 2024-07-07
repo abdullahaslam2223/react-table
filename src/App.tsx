@@ -8,6 +8,9 @@ const App = (): JSX.Element => {
   const handleShiftClick = (): void => {
     navigate("shift");
   };
+  const handleProfileClick = (): void => {
+    navigate("profile");
+  };
 
   return (
     <div className="p-5">
@@ -23,9 +26,15 @@ const App = (): JSX.Element => {
         </button>
         <button
           onClick={handleShiftClick}
-          className="p-2 bg-red-500 text-white rounded w-full hover:bg-red-600"
+          className="p-2 bg-red-500 text-white rounded mb-2 w-full hover:bg-red-600"
         >
           Shift
+        </button>
+        <button
+          onClick={handleProfileClick}
+          className="p-2 bg-orange-500 text-white rounded w-full hover:bg-orange-600"
+        >
+          Profile
         </button>
       </div>
     </div>

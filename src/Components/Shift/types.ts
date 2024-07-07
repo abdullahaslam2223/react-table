@@ -42,3 +42,7 @@ export interface AvailableShiftType {
 export interface AddShiftProps {
   closeModal: () => void;
 }
+
+export interface ShiftDetailsParams {
+  id: string
+}
