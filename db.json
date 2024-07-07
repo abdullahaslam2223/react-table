@@ -226,5 +226,12 @@
       "description": "Completed here",
       "status": "Completed"
     }
-  ]
+  ],
+  "employeeDetails": {
+    "id": 1,
+    "name": "Abdullah Aslam",
+    "department": "Engineering",
+    "jobTitle": "Engineer",
+    "jobCategory": "Full Time"
+  }
 }
