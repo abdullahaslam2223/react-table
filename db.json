@@ -233,5 +233,242 @@
     "department": "Engineering",
     "jobTitle": "Engineer",
     "jobCategory": "Full Time"
-  }
+  },
+  "contactDetails": [
+    {
+      "multipleOnRow": true,
+      "childFields": [
+        {
+          "id": 1,
+          "label": "Phone Number 1",
+          "fieldId": "phone1",
+          "htmlField": "input",
+          "options": null,
+          "rows": null,
+          "type": "text",
+          "placeholder": "Phone Number 1",
+          "errors": {
+            "required": "Phone 1 Field is required"
+          },
+          "width": "half"
+        },
+        {
+          "id": 2,
+          "label": "Phone Number 2",
+          "fieldId": "phone2",
+          "htmlField": "input",
+          "options": null,
+          "rows": null,
+          "type": "text",
+          "placeholder": "Phone Number 2",
+          "errors": {
+            "required": "Phone Field is required"
+          },
+          "width": "half"
+        }
+      ],
+      "label": null,
+      "fieldId": null,
+      "htmlField": null,
+      "options": null,
+      "rows": null,
+      "type": null,
+      "placeholder": null,
+      "errors": null,
+      "width": null
+    },
+    {
+      "id": 3,
+      "multipleOnRow": false,
+      "childFields": null,
+      "label": "Email Address",
+      "fieldId": "email",
+      "htmlField": "input",
+      "options": null,
+      "rows": null,
+      "type": "email",
+      "placeholder": "Address",
+      "errors": {
+        "required": "Email Address is required"
+      },
+      "width": "full"
+    },
+    {
+      "multipleOnRow": true,
+      "childFields": [
+        {
+          "id": 4,
+          "label": "State of Residence",
+          "fieldId": "state",
+          "htmlField": "input",
+          "options": null,
+          "rows": null,
+          "type": "text",
+          "placeholder": "State of Residence",
+          "errors": {
+            "required": "State Field is required"
+          },
+          "width": "half"
+        },
+        {
+          "id": 5,
+          "label": "City",
+          "fieldId": "city",
+          "htmlField": "input",
+          "options": null,
+          "rows": null,
+          "type": "text",
+          "placeholder": "City",
+          "errors": {
+            "required": "City Field is required"
+          },
+          "width": "half"
+        }
+      ],
+      "label": null,
+      "fieldId": null,
+      "htmlField": null,
+      "options": null,
+      "rows": null,
+      "type": null,
+      "placeholder": null,
+      "errors": null,
+      "width": null
+    },
+    {
+      "id": 6,
+      "multipleOnRow": false,
+      "childFields": null,
+      "label": "Residential Address",
+      "fieldId": "address",
+      "htmlField": "textarea",
+      "options": null,
+      "rows": 5,
+      "type": null,
+      "placeholder": "Address",
+      "errors": {
+        "required": "Residential Address is required"
+      },
+      "width": "full"
+    }
+  ],
+  "nextOfKinFields": [
+    {
+      "multipleOnRow": true,
+      "childFields": [
+        {
+          "id": 1,
+          "label": "Next of Kin Name",
+          "fieldId": "kin-name",
+          "htmlField": "input",
+          "options": null,
+          "rows": null,
+          "type": "text",
+          "placeholder": "eg: Ali",
+          "errors": {
+            "required": "Next of Kin Name Field is required"
+          },
+          "width": "half"
+        },
+        {
+          "id": 2,
+          "label": "Job/Occupation",
+          "fieldId": "job",
+          "htmlField": "input",
+          "options": null,
+          "rows": null,
+          "type": "text",
+          "placeholder": "eg: IT Manager",
+          "errors": {
+            "required": "Job Field is required"
+          },
+          "width": "half"
+        }
+      ],
+      "label": null,
+      "fieldId": null,
+      "htmlField": null,
+      "options": null,
+      "rows": null,
+      "type": null,
+      "placeholder": null,
+      "errors": null,
+      "width": null
+    },
+    {
+      "multipleOnRow": true,
+      "childFields": [
+        {
+          "id": 3,
+          "multipleOnRow": false,
+          "childFields": null,
+          "label": "Phone Number",
+          "fieldId": "phone",
+          "htmlField": "input",
+          "options": null,
+          "rows": null,
+          "type": "text",
+          "placeholder": "eg: +923000000000",
+          "errors": {
+            "required": "Phone Number is required"
+          },
+          "width": "full"
+        },
+        {
+          "id": 4,
+          "multipleOnRow": false,
+          "childFields": null,
+          "label": "Relationship",
+          "fieldId": "relationship",
+          "htmlField": "select",
+          "options": [
+            {
+              "text": "Relative",
+              "value": "relative"
+            },
+            {
+              "text": "Friend",
+              "value": "friend"
+            },
+            {
+              "text": "Unknown",
+              "value": "unknown"
+            }
+          ],
+          "rows": null,
+          "type": null,
+          "placeholder": "Select Relationship",
+          "errors": {
+            "required": "Selecting relationship is required"
+          },
+          "width": "full"
+        }
+      ],
+      "label": null,
+      "fieldId": null,
+      "htmlField": null,
+      "options": null,
+      "rows": null,
+      "type": null,
+      "placeholder": null,
+      "errors": null,
+      "width": null
+    },
+    {
+      "id": 5,
+      "multipleOnRow": false,
+      "childFields": null,
+      "label": "Residential Address",
+      "fieldId": "address",
+      "htmlField": "textarea",
+      "options": null,
+      "rows": 5,
+      "type": null,
+      "placeholder": "Address",
+      "errors": {
+        "required": "Residential Address is required"
+      },
+      "width": "full"
+    }
+  ]
 }

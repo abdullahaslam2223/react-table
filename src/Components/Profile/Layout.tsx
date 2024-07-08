@@ -14,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
             <NavLink to="/profile/contact">Contact Details</NavLink>
           </li>
           <li className="bg-gray-200 p-2 rounded hover:bg-yellow-400 text-center cursor-pointer">
-            <a href="#">Next of Kin Details</a>
+            <NavLink to="/profile/next-of-kin">Next of Kin Details</NavLink>
           </li>
           <li className="bg-gray-200 p-2 rounded hover:bg-yellow-400 text-center cursor-pointer">
             <a href="#">Education Qualifications</a>
