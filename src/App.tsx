@@ -9,7 +9,7 @@ const App = (): JSX.Element => {
     navigate("shift");
   };
   const handleProfileClick = (): void => {
-    navigate("profile");
+    navigate("profile/details");
   };
 
   return (

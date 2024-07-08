@@ -23,7 +23,7 @@ const router = createBrowserRouter(
       <Route path="/agency" element={<AgencyTable />} />
       <Route path="/shift" element={<Shift />} />
       <Route path="/shift/:id" element={<ShiftDetails />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route path="/profile/details" element={<Profile />} />
       <Route path="/profile/contact" element={<ContactDetails />} />
       <Route path="/profile/next-of-kin" element={<NextOfKin />} />
     </>
