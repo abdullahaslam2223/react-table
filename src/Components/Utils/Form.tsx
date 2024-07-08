@@ -26,7 +26,7 @@ const Form: React.FC = ({ fields }): JSX.Element => {
                   {field.childFields?.map((field) => (
                     <>
                       {field.htmlField === "input" && (
-                        <div>
+                        <div className="mt-3">
                           <label htmlFor={field.fieldId}>{field.label}</label>
                           <input
                             type={field.type}
@@ -44,7 +44,7 @@ const Form: React.FC = ({ fields }): JSX.Element => {
                       )}
 
                       {field.htmlField === "select" && (
-                        <div>
+                        <div className="mt-3">
                           <label htmlFor={field.fieldId}>{field.label}</label>
                           <select
                             id={field.fieldId}
@@ -72,7 +72,7 @@ const Form: React.FC = ({ fields }): JSX.Element => {
               )}
 
               {field.htmlField === "input" && (
-                <div>
+                <div className="mt-3">
                   <label htmlFor={field.fieldId}>{field.label}</label>
                   <input
                     type={field.type}
@@ -91,7 +91,7 @@ const Form: React.FC = ({ fields }): JSX.Element => {
                 </div>
               )}
               {field.htmlField === "textarea" && (
-                <div>
+                <div className="mt-3">
                   <label htmlFor={field.fieldId}>{field.label}</label>
                   <textarea
                     rows={field.rows}
@@ -110,7 +110,7 @@ const Form: React.FC = ({ fields }): JSX.Element => {
                 </div>
               )}
               {field.htmlField === "select" && (
-                <div>
+                <div className="mt-3">
                   <label htmlFor={field.fieldId}>{field.label}</label>
                   <select
                     id={field.fieldId}
