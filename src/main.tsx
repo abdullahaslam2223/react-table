@@ -14,6 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ShiftDetails from "./Components/Shift/ShiftDetails.tsx";
 import Profile from "./Components/Profile/Profile.tsx";
 import ContactDetails from "./Components/Profile/ContactDetails.tsx";
+import NextOfKin from "./Components/Profile/NextOfKin.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="/shift/:id" element={<ShiftDetails />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/profile/contact" element={<ContactDetails />} />
+      <Route path="/profile/next-of-kin" element={<NextOfKin />} />
     </>
   )
 );
