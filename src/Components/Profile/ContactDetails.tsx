@@ -1,21 +1,19 @@
 import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { ContactDetailsFormType } from "./types";
 import Layout from "./Layout";
-import Form from "../Utils/Form";
+import Form from "../Utils/Form/Form";
+import { Field as FieldsType } from "../Utils/Form/types";
+
+// interface ContactDetails {
+//   address: string;
+//   city: string;
+//   email: string;
+//   phone1: string;
+//   phone2: string;
+//   state: string;
+// }
 
 const ContactDetails: React.FC = (): JSX.Element => {
-  const [fields, setFields] = React.useState([]);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ContactDetailsFormType>();
-
-  const onSubmit: SubmitHandler<ContactDetailsFormType> = (data) => {
-    console.log(data);
-  };
+  const [fields, setFields] = React.useState<FieldsType[] | []>([]);
 
   const fetchData = async (): Promise<void> => {
     const response = await fetch("http://localhost:3000/contactDetails");
@@ -23,7 +21,7 @@ const ContactDetails: React.FC = (): JSX.Element => {
     setFields(data);
   };
 
-  React.useEffect(() => {
+  React.useEffect((): void => {
     fetchData();
   }, []);
 

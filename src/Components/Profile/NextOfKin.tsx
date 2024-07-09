@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "../Utils/Form";
+import Form from "../Utils/Form/Form";
 import Layout from "./Layout";
 
 const NextOfKin: React.FC = (): JSX.Element => {
