@@ -3,17 +3,17 @@ import Layout from "./Layout";
 import Form from "../Utils/Form/Form";
 import { Field as FieldsType } from "../Utils/Form/types";
 
-// interface ContactDetails {
-//   address: string;
-//   city: string;
-//   email: string;
-//   phone1: string;
-//   phone2: string;
-//   state: string;
-// }
+type ContactDetails = {
+  address: string;
+  city: string;
+  email: string;
+  phone1: string;
+  phone2: string;
+  state: string;
+}
 
 const ContactDetails: React.FC = (): JSX.Element => {
-  const [fields, setFields] = React.useState<FieldsType[] | []>([]);
+  const [fields, setFields] = React.useState<FieldsType<ContactDetails>[] | []>([]);
 
   const fetchData = async (): Promise<void> => {
     const response = await fetch("http://localhost:3000/contactDetails");
@@ -30,7 +30,7 @@ const ContactDetails: React.FC = (): JSX.Element => {
       <Layout
         children={
           <div className="h-screen">
-            <Form fields={fields} />
+            <Form<ContactDetails> fields={fields} />
           </div>
         }
       />

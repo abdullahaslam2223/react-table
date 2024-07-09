@@ -236,6 +236,7 @@
   },
   "contactDetails": [
     {
+      "id": 1,
       "multipleOnRow": true,
       "childFields": [
         {

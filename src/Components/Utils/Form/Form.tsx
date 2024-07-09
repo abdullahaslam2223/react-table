@@ -1,52 +1,51 @@
 import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm, FieldValues } from "react-hook-form";
 import InputField from "./InputField";
 import SelectField from "./SelectField";
 import TextArea from "./TextArea";
 import { FormProps } from "./types";
 
-const Form: React.FC<FormProps> = ({ fields }): JSX.Element => {
+const Form = <T extends FieldValues>({ fields }: FormProps<T>): JSX.Element => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<T>();
 
-  const onSubmit: SubmitHandler = (data) => {
+  const onSubmit: SubmitHandler<T> = (data): void => {
     console.log(data);
   };
 
   return (
-    <>
+    <React.Fragment>
       {fields && (
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="bg-white w-3/4 mx-auto py-10 px-5 rounded-xl"
         >
-          {fields.map((field) => (
-            <div>
-              {field.multipleOnRow === true && (
+          {fields.map((field, index) => (
+            <div key={index}>
+              {field.multipleOnRow === true && field.childFields && (
                 <div className="flex justify-between">
-                  {field.childFields?.map((field) => (
-                    <>
-                      {field.htmlField === "input" && (
+                  {field.childFields.map((childField, childIndex) => (
+                    <React.Fragment key={childIndex}>
+                      {childField.htmlField === "input" && (
                         <InputField
-                          field={field}
+                          field={childField}
                           register={register}
                           errors={errors}
                           half={true}
                         />
                       )}
-
-                      {field.htmlField === "select" && (
+                      {childField.htmlField === "select" && (
                         <SelectField
-                          field={field}
+                          field={childField}
                           register={register}
                           errors={errors}
                           half={true}
                         />
                       )}
-                    </>
+                    </React.Fragment>
                   ))}
                 </div>
               )}
@@ -60,7 +59,12 @@ const Form: React.FC<FormProps> = ({ fields }): JSX.Element => {
                 />
               )}
               {field.htmlField === "textarea" && (
-                <TextArea field={field} register={register} errors={errors} />
+                <TextArea
+                  field={field}
+                  register={register}
+                  errors={errors}
+                  half={false}
+                />
               )}
               {field.htmlField === "select" && (
                 <SelectField
@@ -80,7 +84,7 @@ const Form: React.FC<FormProps> = ({ fields }): JSX.Element => {
           </button>
         </form>
       )}
-    </>
+    </React.Fragment>
   );
 };
 

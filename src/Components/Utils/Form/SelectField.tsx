@@ -1,12 +1,20 @@
 import React from "react";
+import { FormFieldProps } from "./types";
 
-const SelectField: React.FC = ({ field, register, errors, half }): JSX.Element => {
+const SelectField: React.FC<FormFieldProps<any>> = ({
+  field,
+  register,
+  errors,
+  half,
+}): JSX.Element => {
   return (
     <div className="mt-3">
       <label htmlFor={field.fieldId}>{field.label}</label>
       <select
         id={field.fieldId}
-        className={`block bg-gray-200 py-2 rounded px-3 mt-2 ${half ? "w-72" : "w-full"}`}
+        className={`block bg-gray-200 py-2 rounded px-3 mt-2 ${
+          half ? "w-72" : "w-full"
+        }`}
         {...register(field.fieldId, field.errors)}
       >
         <option value="">{field.placeholder}</option>

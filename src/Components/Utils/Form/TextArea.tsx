@@ -1,6 +1,11 @@
 import React from "react";
+import { FormFieldProps } from "./types";
 
-const TextArea: React.FC = ({ field, register, errors }): JSX.Element => {
+const TextArea: React.FC<FormFieldProps<any>> = ({
+  field,
+  register,
+  errors,
+}): JSX.Element => {
   return (
     <div className="mt-3">
       <label htmlFor={field.fieldId}>{field.label}</label>
