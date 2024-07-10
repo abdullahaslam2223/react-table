@@ -52,8 +52,17 @@ const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
           <li className="bg-gray-200 p-2 rounded hover:bg-yellow-400 text-center cursor-pointer">
             <a href="#">Family Details</a>
           </li>
-          <li className="bg-gray-200 p-2 rounded hover:bg-yellow-400 text-center cursor-pointer">
-            <a href="#">Job Details</a>
+          <li>
+            <NavLink
+              to="/profile/job-details"
+              className={({ isActive }) =>
+                `${
+                  isActive ? "bg-yellow-400" : "bg-gray-200"
+                } p-2 rounded hover:bg-yellow-400 text-center cursor-pointer block`
+              }
+            >
+              Job Details
+            </NavLink>
           </li>
           <li className="bg-gray-200 p-2 rounded hover:bg-yellow-400 text-center cursor-pointer">
             <a href="#">Financial Details</a>
