@@ -484,6 +484,18 @@
       "documentName": "NYSC Certificate",
       "createdDate": "2024-07-10T13:54:42.759Z",
       "fileLink": "http://localhost:5173/BMS DIGITAL.pdf"
+    },
+    {
+      "id": "23b7",
+      "documentName": "Offer Letter",
+      "createdDate": "2024-07-10T14:07:05.791Z",
+      "fileLink": "http://localhost:5173/BMS DIGITAL.pdf"
+    },
+    {
+      "id": "1a8b",
+      "documentName": "Guarantor's Form",
+      "createdDate": "2024-07-10T14:07:26.482Z",
+      "fileLink": "http://localhost:5173/374231.pdf"
     }
   ]
 }

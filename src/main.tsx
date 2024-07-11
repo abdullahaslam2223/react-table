@@ -15,6 +15,8 @@ import ShiftDetails from "./Components/Shift/ShiftDetails.tsx";
 import Profile from "./Components/Profile/Profile.tsx";
 import ContactDetails from "./Components/Profile/ContactDetails.tsx";
 import NextOfKin from "./Components/Profile/NextOfKin.tsx";
+import JobDetails from "./Components/Profile/JobDetails/JobDetails.tsx";
+import ShowDocuments from "./Components/Profile/JobDetails/ShowDocuments.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +28,8 @@ const router = createBrowserRouter(
       <Route path="/profile/details" element={<Profile />} />
       <Route path="/profile/contact" element={<ContactDetails />} />
       <Route path="/profile/next-of-kin" element={<NextOfKin />} />
+      <Route path="/profile/job-details" element={<ShowDocuments />} />
+      <Route path="/profile/job-details/upload-documents" element={<JobDetails />} />
     </>
   )
 );
